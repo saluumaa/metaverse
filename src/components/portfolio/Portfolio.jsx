@@ -5,38 +5,38 @@ import { motion, useInView, useScroll, useTransform } from "motion/react";
 const items = [
   {
     id: 1,
-    img: "/p1.jpg",
-    title: "Full Stack Blog Application",
-    desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure laboriosam tempore consectetur, atque maiores culpa quia, repellat id, dicta esse fugit neque voluptatem provident itaque voluptates minima. Repudiandae, provident hic.",
-    link: "/",
+    img: "/courtImage.png",
+    title: "Full Stack Court Management System",
+    desc: "is a web application that allows courts to manage their  cases, track case progress, and communicate with their legal team. It is built using vite, React, Node.js, Express, and MongoDB.",
+    link: "https://client-azure-gamma-29.vercel.app" ,
   },
   {
     id: 2,
-    img: "/p2.jpg",
-    title: "School Management System",
-    desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure laboriosam tempore consectetur, atque maiores culpa quia, repellat id, dicta esse fugit neque voluptatem provident itaque voluptates minima. Repudiandae, provident hic.",
-    link: "/",
+    img: "/agritradeImage.png",
+    title: "Agricultural Website",
+    desc: "is designed to showcase the products and services of an agricultural company. It is built using react and tailwindcs and features a responsive design.",
+    link: "https://agri-web-indol.vercel.app",
   },
   {
     id: 3,
-    img: "/p3.jpg",
-    title: "Real-time Chat Application",
-    desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure laboriosam tempore consectetur, atque maiores culpa quia, repellat id, dicta esse fugit neque voluptatem provident itaque voluptates minima. Repudiandae, provident hic.",
-    link: "/",
+    img: "/bookstore.PNG",
+    title: "Book Store App",
+    desc: "allows users to create a list of books, remove them, and track their reading progress. It is built with React and features an intuitive user interface.",
+    link: "book-store-f6oy.onrender.com/",
   },
   {
     id: 4,
-    img: "/p4.jpg",
-    title: "Social Media Project",
-    desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure laboriosam tempore consectetur, atque maiores culpa quia, repellat id, dicta esse fugit neque voluptatem provident itaque voluptates minima. Repudiandae, provident hic.",
-    link: "/",
+    img: "/leaderboard.PNG",
+    title: "Leaderboard App",
+    desc: "is an API that allows users to post their scores and view the scores of other players. It is built with HTML, CSS, and JavaScript and provides a competitive gaming platform.",
+    link: "saluumaa.github.io/Leader-board/dist/",
   },
   {
     id: 5,
-    img: "/p5.jpg",
-    title: "Animated Portfolio Website",
-    desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure laboriosam tempore consectetur, atque maiores culpa quia, repellat id, dicta esse fugit neque voluptatem provident itaque voluptates minima. Repudiandae, provident hic.",
-    link: "/",
+    img: "/skillsail site.PNG",
+    title: "SkillSail Website",
+    desc: "Genius Academy is an online platform that offers a wide range of educational resources and courses to help individuals enhance their skills and knowledge in various areas. It's built using HTML, CSS, and JavaScript.",
+    link: "saluumaa.github.io/Skill-Sail-Site/",
   },
 ];
 
@@ -97,7 +97,7 @@ const ListItem = ({ item }) => {
         <motion.h1 variants={textVariants}>{item.title}</motion.h1>
         <motion.p variants={textVariants}>{item.desc}</motion.p>
         <motion.a variants={textVariants} href={item.link}>
-          <button>View Project</button>
+          <button>View Live Demo</button>
         </motion.a>
       </motion.div>
     </div>
@@ -142,7 +142,7 @@ const Portfolio = () => {
   );
 
   return (
-    <div className="portfolio" ref={ref}>
+    <div className="portfolio" id="portfolio" ref={ref}>
       <motion.div className="pList" style={{ x: xTranslate }}>
         <div
           className="empty"
@@ -175,7 +175,7 @@ const Portfolio = () => {
             cy="80"
             r="70"
             fill="none"
-            stroke="#dd4c62"
+            stroke="violet"
             strokeWidth={20}
             style={{ pathLength: scrollYProgress }}
             transform="rotate(-90 80 80)"

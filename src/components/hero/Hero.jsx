@@ -1,24 +1,9 @@
+import { motion } from "framer-motion";
+import "./hero.css"; 
 import { Canvas } from "@react-three/fiber";
-import "./hero.css";
-// import Speech from "./Speech";
-import { motion } from "motion/react";
+import { Github, Linkedin, Twitter } from "lucide-react";
 import Shape from "./Shape";
-import { Suspense } from "react";
 
-const awardVariants = {
-  initial: {
-    x: -100,
-    opacity: 0,
-  },
-  animate: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      duration: 1,
-      staggerChildren: 0.2,
-    },
-  },
-};
 
 const followVariants = {
   initial: {
@@ -35,11 +20,18 @@ const followVariants = {
   },
 };
 
+const rotatingTextVariants = {
+  initial: { opacity: 0, y: -10 },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  exit: { opacity: 0, y: 10, transition: { duration: 0.5 } },
+};
+
 const Hero = () => {
   return (
     <div className="hero">
+      {/* Left Section */}
       <div className="hSection left">
-        {/* TITLE */}
+        {/* Title */}
         <motion.h1
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -48,26 +40,40 @@ const Hero = () => {
         >
           Hey There,
           <br />
-          <span>I'm Robert!</span>
+          <span>I'm Salma!</span>
         </motion.h1>
-        {/* AWARDS */}
+
+        {/* Description */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 1 }}
+          className="description"
+        >
+          I'm a passionate <span>Full-Stack Developer</span> with expertise in building scalable web applications, designing intuitive user interfaces, and delivering seamless user experiences. I specialize in modern technologies like React, Node.js, MongoDB, Postgresql and I love turning ideas into reality.
+        </motion.p>
+
         <motion.div
-          variants={awardVariants}
+          variants={followVariants}
           initial="initial"
           animate="animate"
-          className="awards"
+          className="follow"
         >
-          <motion.h2 variants={awardVariants}>Top Rated Designer</motion.h2>
-          <motion.p variants={awardVariants}>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          </motion.p>
-          <motion.div variants={awardVariants} className="awardList">
-            <motion.img variants={awardVariants} src="/award1.png" alt="" />
-            <motion.img variants={awardVariants} src="/award2.png" alt="" />
-            <motion.img variants={awardVariants} src="/award3.png" alt="" />
+          <motion.a variants={followVariants} href="https://github.com/saluumaa">
+            <Github />
+          </motion.a>
+          <motion.a variants={followVariants} href="https://twitter.com/SalmaHIbrahim20">
+             <Twitter/>
+          </motion.a>
+          <motion.a variants={followVariants} href="https://www.linkedin.com/in/salma-ibrahim-78bb5a14a/">
+            <Linkedin />
+          </motion.a>
+          <motion.div variants={followVariants} className="followTextContainer">
+            <div className="followText">FOLLOW ME</div>
           </motion.div>
         </motion.div>
-        {/* SCROLL SVG */}
+
+        {/* Scroll SVG */}
         <motion.a
           animate={{ y: [0, 5], opacity: [0, 1, 0] }}
           transition={{
@@ -75,7 +81,7 @@ const Hero = () => {
             duration: 4,
             ease: "easeInOut",
           }}
-          href="#services"
+          href="#about"
           className="scroll"
         >
           <svg
@@ -105,107 +111,23 @@ const Hero = () => {
           </svg>
         </motion.a>
       </div>
+
+      {/* Right Section */}
       <div className="hSection right">
-        {/* FOLLOW */}
-        <motion.div
-          variants={followVariants}
-          initial="initial"
-          animate="animate"
-          className="follow"
-        >
-          <motion.a variants={followVariants} href="/">
-            <img src="/instagram.png" alt="" />
-          </motion.a>
-          <motion.a variants={followVariants} href="/">
-            <img src="/facebook.png" alt="" />
-          </motion.a>
-          <motion.a variants={followVariants} href="/">
-            <img src="/youtube.png" alt="" />
-          </motion.a>
-          <motion.div variants={followVariants} className="followTextContainer">
-            <div className="followText">FOLLOW ME</div>
-          </motion.div>
-        </motion.div>
-        {/* BUBBLE */}
-        {/* <Speech /> */}
-        {/* CERTIFICATE */}
-        <motion.div
-          animate={{ opacity: [0, 1] }}
-          transition={{ duration: 1 }}
-          className="certificate"
-        >
-          <img src="/certificate.png" alt="" />
-          LMA CERTIFICED
-          <br />
-          PROFESSIONAL
-          <br />
-          UI DESIGNER
-        </motion.div>
-        {/* CONTACT BUTTON */}
-        <motion.a
-          href="/#contact"
-          className="contactLink"
-          animate={{
-            x: [200, 0],
-            opacity: [0, 1],
-          }}
-          transition={{
-            duration: 2,
-          }}
-        >
-          <motion.div
-            className="contactButton"
-            animate={{ rotate: [0, 360] }}
-            transition={{
-              duration: 10,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-          >
-            <svg viewBox="0 0 200 200" width="150" height="150">
-              <circle cx="100" cy="100" r="90" fill="pink" />
-              <path
-                id="innerCirclePath"
-                fill="none"
-                d="M 100,100 m -60,0 a 60,60 0 1,1 120,0 a 60,60 0 1,1 -120,0"
-              />
-              <text className="circleText">
-                <textPath href="#innerCirclePath">Hire Now •</textPath>
-              </text>
-              <text className="circleText">
-                <textPath href="#innerCirclePath" startOffset="44%">
-                  Contact Me •
-                </textPath>
-              </text>
-            </svg>
-            <div className="arrow">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                width="50"
-                height="50"
-                fill="none"
-                stroke="black"
-                strokeWidth="2"
-              >
-                <line x1="6" y1="18" x2="18" y2="6" />
-                <polyline points="9 6 18 6 18 15" />
-              </svg>
-            </div>
-          </motion.div>
-        </motion.a>
-      </div>
-      <div className="bg">
-        {/* 3d */}
-        <Canvas>
-          <Suspense fallback="loading...">
+      <div className="animated-bg"></div>
+
+        {/* Floating 3D Shape */}
+        <div className="shape-container">
+          <Canvas>
             <Shape />
-          </Suspense>
-        </Canvas>
-        <div className="hImg">
-          <img src="/hero.png" alt="" />
+          </Canvas>
+          <div className="shape-image">
+            <img src="/girl.png" alt="Salma" />
+          </div>
         </div>
+         
       </div>
+
     </div>
   );
 };

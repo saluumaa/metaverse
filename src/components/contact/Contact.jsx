@@ -54,7 +54,7 @@ const Contact = () => {
   const isInView = useInView(ref, { margin: "-200px" });
 
   return (
-    <div className="contact" ref={ref} onSubmit={sendEmail}>
+    <div className="contact" id="contact" ref={ref} onSubmit={sendEmail}>
       <div className="cSection">
         <motion.form
           ref={form}
@@ -66,14 +66,14 @@ const Contact = () => {
           </motion.h1>
           <motion.div variants={listVariant} className="formItem">
             <label>Name</label>
-            <input type="text" name="user_username" placeholder="John Doe" />
+            <input type="text" name="user_username" placeholder="salma ibrahim" />
           </motion.div>
           <motion.div variants={listVariant} className="formItem">
             <label>Email</label>
             <input
               type="email"
               name="user_email"
-              placeholder="john@gmail.com"
+              placeholder="salma@gmail.com"
             />
           </motion.div>
           <motion.div variants={listVariant} className="formItem">
@@ -84,7 +84,7 @@ const Contact = () => {
               placeholder="Write your message..."
             ></textarea>
           </motion.div>
-          <motion.button variants={listVariant} className="formButton">
+          <motion.button variants={listVariant}  className="formButton">
             Send
           </motion.button>
           {success && <span>Your message has been sent!</span>}
